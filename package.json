@@ -1,0 +1,28 @@
+{
+  "name": "source-installation",
+  "version": "1.0.0",
+  "description": "source installation",
+  "main": "index.js",
+  "author": "Netto",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "test": "xo"
+  },
+  "xo": {
+    "plugin": "react",
+    "prettier": true,
+    "space": true,
+    "semicolon": false
+  },
+  "devDependencies": {
+    "docz": "^0.12.5",
+    "xo": "^0.23.0"
+  },
+  "dependencies": {
+    "evergreen-ui": "^4.0.0-44",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
