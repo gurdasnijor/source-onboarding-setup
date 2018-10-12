@@ -7,22 +7,55 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "test": "xo"
+    "test": "xo",
+    "precommit": "lint-staged",
+    "dev": "docz dev"
   },
   "xo": {
-    "plugin": "react",
+    "parser": "babel-eslint",
+    "extends": "xo-react",
+    "envs": [
+      "node",
+      "browser"
+    ],
     "prettier": true,
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "rules": {
+      "prefer-destructuring": "off",
+      "unicorn/filename-case": "off",
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ]
+    }
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "docz": "^0.12.5",
+    "eslint-config-xo-react": "^0.17.0",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.1.2",
+    "lint-staged": "^7.3.0",
     "xo": "^0.23.0"
   },
   "dependencies": {
     "evergreen-ui": "^4.0.0-44",
+    "graphql-request": "^1.8.2",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ]
   }
 }
