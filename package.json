@@ -48,6 +48,7 @@
     "evergreen-ui": "^4.0.0-44",
     "graphql-request": "^1.8.2",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
