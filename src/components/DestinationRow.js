@@ -6,8 +6,8 @@ import {
   majorScale,
   minorScale,
   Tooltip,
-  Heading,
-  Text
+  Text,
+  Menu
 } from 'evergreen-ui'
 import {uniqBy} from 'lodash'
 
@@ -38,33 +38,30 @@ const DestinationRow = ({destinations = []}) => {
 
 function DestinationsTooltip({destinations}) {
   return (
-    <Pane padding={size}>
-      <Heading marginBottom={size}>Destinations:</Heading>
-      <Pane maxHeight={300} overflow="auto">
-        {destinations.map(destination => {
-          const meta = destination.metadata
-          return (
-            <Pane
-              key={destination.id}
-              borderBottom
-              padding={size / 2}
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              cursor="pointer"
-            >
-              <Image
-                maxHeight={size}
-                maxWidth={size}
-                src={meta.logos.mark || meta.logos.default}
-                alt={meta.name}
-                margin={size / 2}
-              />
-              <Text>{meta.name}</Text>
-            </Pane>
-          )
-        })}
-      </Pane>
+    <Pane paddingBottom={size}>
+      <Menu>
+        <Menu.Group title="Destinations">
+          <Pane maxHeight={300} overflow="auto">
+            {destinations.map(destination => {
+              const meta = destination.metadata
+              return (
+                <Menu.Item key={destination.id} minWidth={400}>
+                  <Pane display="flex" flexDirection="row" alignItems="center">
+                    <Image
+                      maxHeight={size}
+                      maxWidth={size}
+                      src={meta.logos.mark || meta.logos.default}
+                      alt={meta.name}
+                      margin={size / 2}
+                    />
+                    <Text>{meta.name}</Text>
+                  </Pane>
+                </Menu.Item>
+              )
+            })}
+          </Pane>
+        </Menu.Group>
+      </Menu>
     </Pane>
   )
 }
